@@ -1,0 +1,38 @@
+@startuml lab3_component
+' Діаграма компонентів
+skinparam defaultFontName "Helvetica"
+skinparam defaultFontSize 12
+skinparam componentStyle rectangle
+skinparam component {
+  BackgroundColor #F4F9FF
+  BorderColor #2F5D8A
+}
+
+node "Браузер користувача" {
+  package "Клієнт (React)" {
+    component "Сторінки та\nUI-компоненти" as UIC
+    component "Маршрутизація\n(react-router)" as Router
+    component "API-клієнт\n(fetch)" as ApiClient
+  }
+}
+node "Сервер (Node.js + Express)" {
+  component "REST API\n(маршрути)" as REST
+  component "Перевірка доступу\n(токен, роль)" as Auth
+  component "Бізнес-логіка\n(сервіси)" as Services
+  component "Робота з БД\n(SQL-запити)" as Repo
+}
+database "База даних\nSQLite" as DB
+
+interface "HTTP / JSON" as IHttp
+interface "SQL" as ISql
+
+Router --> UIC
+UIC --> ApiClient
+ApiClient -( IHttp
+IHttp - REST
+REST --> Auth
+REST --> Services
+Services --> Repo
+Repo -( ISql
+ISql - DB
+@enduml

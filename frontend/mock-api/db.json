@@ -1,0 +1,387 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "fullName": "Мельник Ірина Петрівна",
+      "email": "admin@pnu.edu.ua",
+      "role": "admin"
+    },
+    {
+      "id": 2,
+      "fullName": "Пікуляк Микола Васильович",
+      "email": "mykola.pikuliak@cnu.edu.ua",
+      "role": "teacher",
+      "teacherId": 1
+    },
+    {
+      "id": 3,
+      "fullName": "Василюк Софія Ярославівна",
+      "email": "sofiia.vasyliuk.23@pnu.edu.ua",
+      "role": "student",
+      "studentId": 1
+    }
+  ],
+  "students": [
+    {
+      "id": 1,
+      "fullName": "Василюк Софія Ярославівна",
+      "email": "sofiia.vasyliuk.23@pnu.edu.ua",
+      "phone": "+380671112233",
+      "groupName": "ІПЗ-41",
+      "recordBookNumber": "ЗК-22-0101"
+    },
+    {
+      "id": 2,
+      "fullName": "Коваль Андрій Олегович",
+      "email": "andrii.koval.23@pnu.edu.ua",
+      "phone": "+380672223344",
+      "groupName": "ІПЗ-41",
+      "recordBookNumber": "ЗК-22-0102"
+    },
+    {
+      "id": 3,
+      "fullName": "Шевчук Марія Василівна",
+      "email": "mariia.shevchuk.23@pnu.edu.ua",
+      "phone": "+380673334455",
+      "groupName": "ІПЗ-42",
+      "recordBookNumber": "ЗК-22-0201"
+    },
+    {
+      "id": 4,
+      "fullName": "Бойко Дмитро Ігорович",
+      "email": "dmytro.boiko.23@pnu.edu.ua",
+      "phone": "+380674445566",
+      "groupName": "ІПЗ-42",
+      "recordBookNumber": "ЗК-22-0202"
+    },
+    {
+      "id": 5,
+      "fullName": "Лисенко Катерина Сергіївна",
+      "email": "kateryna.lysenko.24@pnu.edu.ua",
+      "phone": "+380675556677",
+      "groupName": "КН-31",
+      "recordBookNumber": "ЗК-23-0301"
+    }
+  ],
+  "teachers": [
+    {
+      "id": 1,
+      "fullName": "Пікуляк Микола Васильович",
+      "shortName": "Пікуляк М. В.",
+      "email": "mykola.pikuliak@cnu.edu.ua",
+      "department": "Кафедра інформаційних технологій",
+      "position": "доцент"
+    },
+    {
+      "id": 2,
+      "fullName": "Ткачук Оксана Іванівна",
+      "shortName": "Ткачук О. І.",
+      "email": "tkachuk@pnu.edu.ua",
+      "department": "Кафедра інформаційних технологій",
+      "position": "старший викладач"
+    }
+  ],
+  "enterprises": [
+    {
+      "id": 1,
+      "name": "ТОВ «СофтСерв Україна»",
+      "address": "м. Івано-Франківськ, вул. Незалежності, 67",
+      "phone": "+380342501234",
+      "email": "hr@softserve.example",
+      "contractNumber": "Д-15/25",
+      "contractDate": "2025-09-01",
+      "isActive": true
+    },
+    {
+      "id": 2,
+      "name": "ТОВ «ЕПАМ Системз»",
+      "address": "м. Львів, вул. Стрийська, 202",
+      "phone": "+380322901234",
+      "email": "practice@epam.example",
+      "contractNumber": "Д-16/25",
+      "contractDate": "2025-09-03",
+      "isActive": true
+    },
+    {
+      "id": 3,
+      "name": "ІТ-компанія «ELEKS»",
+      "address": "м. Івано-Франківськ, вул. Вовчинецька, 225",
+      "phone": "+380342551234",
+      "email": "edu@eleks.example",
+      "contractNumber": "Д-17/25",
+      "contractDate": "2025-09-05",
+      "isActive": true
+    },
+    {
+      "id": 4,
+      "name": "Центр ІТ ПНУ ім. В. Стефаника",
+      "address": "м. Івано-Франківськ, вул. Шевченка, 57",
+      "phone": "+380342596000",
+      "email": "it@pnu.edu.ua",
+      "contractNumber": "Д-18/25",
+      "contractDate": "2025-09-10",
+      "isActive": true
+    }
+  ],
+  "periods": [
+    {
+      "id": 1,
+      "type": "виробнича",
+      "academicYear": "2024/2025",
+      "semester": 2,
+      "startDate": "2025-04-07",
+      "endDate": "2025-05-04",
+      "hours": 180,
+      "credits": 6
+    },
+    {
+      "id": 2,
+      "type": "виробнича",
+      "academicYear": "2025/2026",
+      "semester": 1,
+      "startDate": "2025-11-03",
+      "endDate": "2025-11-30",
+      "hours": 180,
+      "credits": 6
+    },
+    {
+      "id": 3,
+      "type": "переддипломна",
+      "academicYear": "2025/2026",
+      "semester": 2,
+      "startDate": "2026-03-02",
+      "endDate": "2026-03-29",
+      "hours": 180,
+      "credits": 6
+    }
+  ],
+  "assignments": [
+    {
+      "id": 1,
+      "studentId": 1,
+      "periodId": 1,
+      "enterpriseId": 4,
+      "teacherId": 1,
+      "supervisorName": "Ковалик Юрій Петрович",
+      "orderNumber": "№ 312-с",
+      "orderDate": "2025-04-01",
+      "status": "defended",
+      "reportFileName": "zvit_vasyliuk_2025.pdf",
+      "reportSubmittedAt": "2025-05-02",
+      "reportStatus": "accepted"
+    },
+    {
+      "id": 2,
+      "studentId": 1,
+      "periodId": 2,
+      "enterpriseId": 1,
+      "teacherId": 1,
+      "supervisorName": "Гринів Олег Романович",
+      "orderNumber": "№ 815-с",
+      "orderDate": "2025-10-28",
+      "status": "report_submitted",
+      "reportFileName": "zvit_vasyliuk_2026.pdf",
+      "reportSubmittedAt": "2025-11-28",
+      "reportStatus": "submitted"
+    },
+    {
+      "id": 3,
+      "studentId": 2,
+      "periodId": 2,
+      "enterpriseId": 1,
+      "teacherId": 1,
+      "supervisorName": "Гринів Олег Романович",
+      "orderNumber": "№ 815-с",
+      "orderDate": "2025-10-28",
+      "status": "in_progress",
+      "reportFileName": null,
+      "reportSubmittedAt": null,
+      "reportStatus": null
+    },
+    {
+      "id": 4,
+      "studentId": 3,
+      "periodId": 2,
+      "enterpriseId": 2,
+      "teacherId": 2,
+      "supervisorName": "Савчук Наталія Богданівна",
+      "orderNumber": "№ 815-с",
+      "orderDate": "2025-10-28",
+      "status": "in_progress",
+      "reportFileName": null,
+      "reportSubmittedAt": null,
+      "reportStatus": null
+    },
+    {
+      "id": 5,
+      "studentId": 4,
+      "periodId": 2,
+      "enterpriseId": 3,
+      "teacherId": 2,
+      "supervisorName": "Романюк Тарас Іванович",
+      "orderNumber": "№ 815-с",
+      "orderDate": "2025-10-28",
+      "status": "assigned",
+      "reportFileName": null,
+      "reportSubmittedAt": null,
+      "reportStatus": null
+    },
+    {
+      "id": 6,
+      "studentId": 5,
+      "periodId": 2,
+      "enterpriseId": 4,
+      "teacherId": 1,
+      "supervisorName": "Ковалик Юрій Петрович",
+      "orderNumber": "№ 816-с",
+      "orderDate": "2025-10-29",
+      "status": "defended",
+      "reportFileName": "zvit_lysenko_2026.pdf",
+      "reportSubmittedAt": "2025-11-27",
+      "reportStatus": "accepted"
+    }
+  ],
+  "diaryEntries": [
+    {
+      "id": 1,
+      "assignmentId": 2,
+      "date": "2025-11-03",
+      "description": "Інструктаж з техніки безпеки. Знайомство з командою та проєктом.",
+      "hours": 6,
+      "status": "approved",
+      "teacherComment": ""
+    },
+    {
+      "id": 2,
+      "assignmentId": 2,
+      "date": "2025-11-04",
+      "description": "Налаштування робочого середовища: Git, Node.js, VS Code. Клонування репозиторію.",
+      "hours": 6,
+      "status": "approved",
+      "teacherComment": ""
+    },
+    {
+      "id": 3,
+      "assignmentId": 2,
+      "date": "2025-11-05",
+      "description": "Вивчення архітектури проєкту, читання документації API.",
+      "hours": 6,
+      "status": "approved",
+      "teacherComment": "Добре"
+    },
+    {
+      "id": 4,
+      "assignmentId": 2,
+      "date": "2025-11-06",
+      "description": "Реалізація компонента форми реєстрації (React).",
+      "hours": 6,
+      "status": "approved",
+      "teacherComment": ""
+    },
+    {
+      "id": 5,
+      "assignmentId": 2,
+      "date": "2025-11-07",
+      "description": "Написання тестів для компонента форми.",
+      "hours": 6,
+      "status": "submitted",
+      "teacherComment": ""
+    },
+    {
+      "id": 6,
+      "assignmentId": 3,
+      "date": "2025-11-03",
+      "description": "Інструктаж, ознайомлення з правилами внутрішнього розпорядку.",
+      "hours": 6,
+      "status": "approved",
+      "teacherComment": ""
+    },
+    {
+      "id": 7,
+      "assignmentId": 3,
+      "date": "2025-11-04",
+      "description": "Аналіз вимог до модуля звітності.",
+      "hours": 6,
+      "status": "submitted",
+      "teacherComment": ""
+    },
+    {
+      "id": 8,
+      "assignmentId": 3,
+      "date": "2025-11-05",
+      "description": "Проєктування схеми бази даних модуля.",
+      "hours": 5,
+      "status": "rejected",
+      "teacherComment": "Замало деталей, опишіть, які саме таблиці спроєктовано"
+    },
+    {
+      "id": 9,
+      "assignmentId": 4,
+      "date": "2025-11-03",
+      "description": "Знайомство з проєктом, налаштування середовища.",
+      "hours": 6,
+      "status": "approved",
+      "teacherComment": ""
+    },
+    {
+      "id": 10,
+      "assignmentId": 4,
+      "date": "2025-11-04",
+      "description": "Вивчення технічного завдання.",
+      "hours": 6,
+      "status": "approved",
+      "teacherComment": ""
+    },
+    {
+      "id": 11,
+      "assignmentId": 6,
+      "date": "2025-11-03",
+      "description": "Ознайомлення з інфраструктурою центру ІТ.",
+      "hours": 6,
+      "status": "approved",
+      "teacherComment": ""
+    },
+    {
+      "id": 12,
+      "assignmentId": 6,
+      "date": "2025-11-04",
+      "description": "Адміністрування навчального сервера Moodle.",
+      "hours": 6,
+      "status": "approved",
+      "teacherComment": ""
+    },
+    {
+      "id": 13,
+      "assignmentId": 1,
+      "date": "2025-04-07",
+      "description": "Ознайомлення з роботою центру ІТ університету.",
+      "hours": 6,
+      "status": "approved",
+      "teacherComment": ""
+    }
+  ],
+  "grades": [
+    {
+      "id": 1,
+      "assignmentId": 1,
+      "enterpriseGrade": 92,
+      "teacherGrade": 90,
+      "finalScore": 91,
+      "ectsGrade": "A",
+      "nationalGrade": "відмінно",
+      "defenseDate": "2025-05-06",
+      "comment": "Захист пройшов успішно"
+    },
+    {
+      "id": 2,
+      "assignmentId": 6,
+      "enterpriseGrade": 85,
+      "teacherGrade": 80,
+      "finalScore": 82,
+      "ectsGrade": "B",
+      "nationalGrade": "добре",
+      "defenseDate": "2025-12-02",
+      "comment": ""
+    }
+  ]
+}

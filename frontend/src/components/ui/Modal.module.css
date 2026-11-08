@@ -1,0 +1,17 @@
+.backdrop {
+  position: fixed; inset: 0; background: rgba(17, 24, 39, 0.5); z-index: 50;
+  display: flex; align-items: center; justify-content: center; padding: 1rem;
+}
+.dialog {
+  background: var(--color-surface); border-radius: 12px; width: 100%;
+  max-height: calc(100vh - 2rem); display: flex; flex-direction: column; box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+}
+.head { display: flex; align-items: center; justify-content: space-between; padding: 1rem 1.25rem; border-bottom: 1px solid var(--color-border); }
+.title { margin: 0; font-size: 1.1rem; }
+.close { background: none; border: none; font-size: 1.6rem; line-height: 1; cursor: pointer; color: var(--color-text-muted); padding: 0 0.25rem; }
+.close:hover { color: var(--color-text); }
+.body { padding: 1.25rem; overflow-y: auto; }
+@media (max-width: 767px) {
+  .backdrop { padding: 0; align-items: flex-end; }
+  .dialog { border-radius: 12px 12px 0 0; max-height: 92vh; }
+}

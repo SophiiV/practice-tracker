@@ -1,0 +1,6 @@
+.badge { display: inline-block; padding: 0.15rem 0.6rem; border-radius: 999px; font-size: 0.78rem; font-weight: 600; white-space: nowrap; }
+.gray { background: #eef0f3; color: #4b5563; }
+.blue { background: var(--color-info-light); color: #1565c0; }
+.orange { background: var(--color-warning-light); color: var(--color-warning); }
+.green { background: var(--color-success-light); color: var(--color-success); }
+.red { background: var(--color-danger-light); color: var(--color-danger); }

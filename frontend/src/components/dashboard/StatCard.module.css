@@ -1,0 +1,7 @@
+.card { padding: 1rem 1.25rem; border-left: 4px solid var(--color-primary); }
+.value { font-size: 2rem; font-weight: 700; line-height: 1.1; }
+.label { color: var(--color-text-muted); font-size: 0.88rem; margin-top: 0.2rem; }
+.blue { border-left-color: var(--color-primary); }
+.orange { border-left-color: var(--color-warning); }
+.green { border-left-color: var(--color-success); }
+.gray { border-left-color: #9ca3af; }

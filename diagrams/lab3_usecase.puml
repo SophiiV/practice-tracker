@@ -1,0 +1,55 @@
+@startuml lab3_usecase
+' Діаграма варіантів використання — «Трекер Практики»
+skinparam defaultFontName "Helvetica"
+skinparam defaultFontSize 12
+skinparam actorStyle awesome
+skinparam usecase {
+  BackgroundColor #FFFBE6
+  BorderColor #8A6D00
+}
+skinparam packageStyle rectangle
+left to right direction
+
+actor "Студент" as Student
+actor "Керівник практики\nвід кафедри" as Teacher
+actor "Адміністратор" as Admin
+
+rectangle "Трекер Практики" {
+  usecase "Увійти в систему" as UC0
+
+  package "Студент" {
+    usecase "Переглянути своє\nнаправлення" as UC1
+    usecase "Додати запис\nдо щоденника" as UC2
+    usecase "Подати звіт\nз практики" as UC3
+    usecase "Переглянути\nоцінку" as UC4
+  }
+  package "Керівник" {
+    usecase "Переглянути список\nсвоїх студентів" as UC5
+    usecase "Перевірити запис щоденника\n(схвалити / відхилити)" as UC6
+    usecase "Перевірити звіт" as UC7
+    usecase "Виставити оцінку" as UC8
+  }
+  package "Адміністратор" {
+    usecase "Керувати базами\nпрактики" as UC9
+    usecase "Створити\nнаправлення" as UC10
+    usecase "Переглянути\nстатистику" as UC11
+  }
+}
+
+Student --> UC1
+Student --> UC2
+Student --> UC3
+Student --> UC4
+Teacher --> UC5
+Teacher --> UC6
+Teacher --> UC7
+Teacher --> UC8
+Admin --> UC9
+Admin --> UC10
+Admin --> UC11
+
+UC1 ..> UC0 : <<include>>
+UC5 ..> UC0 : <<include>>
+UC9 ..> UC0 : <<include>>
+UC8 ..> UC7 : <<extend>>
+@enduml

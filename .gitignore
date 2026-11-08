@@ -1,0 +1,18 @@
+node_modules
+dist
+*.db
+.DS_Store
+
+# Locally filled documents and transient Python files
+__pycache__/
+*.pyc
+testing/artifacts/
+.env
+*.db-shm
+*.db-wal
+
+# Local configuration and generated files
+.env.*
+!.env.example
+*.db-journal
+*.log

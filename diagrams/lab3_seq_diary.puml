@@ -1,0 +1,33 @@
+@startuml lab3_seq_diary
+' Діаграма послідовності: додавання запису до щоденника
+skinparam defaultFontName "Helvetica"
+skinparam defaultFontSize 12
+skinparam sequenceMessageAlign center
+skinparam sequence {
+  LifeLineBorderColor #2F5D8A
+  ParticipantBackgroundColor #F4F9FF
+  ParticipantBorderColor #2F5D8A
+}
+actor "Студент" as St
+participant "Форма запису\n(React)" as UI
+participant "Сервер\n(REST API)" as S
+database "База даних" as DB
+
+St -> UI : заповнити дату, опис,\nгодини; «Додати запис»
+activate UI
+UI -> UI : валідація: дата в межах\nпрактики, 1–12 годин,\nопис ≥ 10 символів
+alt дані некоректні
+  UI --> St : підсвітити поля\nз помилками
+else дані коректні
+  UI -> S : POST /api/diaryEntries\n{assignmentId, date, hours, description}
+  activate S
+  S -> S : перевірити токен і що\nнаправлення належить студенту
+  S -> DB : INSERT INTO diary_entries ...
+  DB --> S : id нового запису
+  S --> UI : 201 Created {entry}
+  deactivate S
+  UI -> UI : додати запис до списку,\nочистити форму
+  UI --> St : повідомлення\n«Запис збережено»
+end
+deactivate UI
+@enduml

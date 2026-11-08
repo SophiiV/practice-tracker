@@ -1,0 +1,81 @@
+@startuml lab67_components
+' Схема декомпозиції інтерфейсу на React-компоненти
+skinparam defaultFontName "Helvetica"
+skinparam defaultFontSize 12
+skinparam rectangle {
+  BackgroundColor #F4F9FF
+  BorderColor #2F5D8A
+  RoundCorner 6
+}
+skinparam ArrowColor #2F5D8A
+left to right direction
+
+rectangle "App\n(BrowserRouter, AuthProvider)" as App
+rectangle "Layout" as Layout
+rectangle "Header\n(логотип, користувач, Вийти)" as Header
+rectangle "Nav\n(бічне меню / нижня панель)" as Nav
+rectangle "Footer" as Footer
+rectangle "<b>Pages</b>" as Pages
+rectangle "LoginPage" as Login
+rectangle "DashboardPage" as Dash
+rectangle "AssignmentsPage" as Asg
+rectangle "AssignmentDetailsPage" as AsgD
+rectangle "EnterprisesPage" as Ent
+rectangle "<b>Feature components</b>" as Feat
+rectangle "StatCard" as StatCard
+rectangle "AssignmentTable\n(desktop)" as AsgTable
+rectangle "AssignmentCard\n(mobile)" as AsgCard
+rectangle "AssignmentForm" as AsgForm
+rectangle "DiaryList" as DiaryList
+rectangle "DiaryForm" as DiaryForm
+rectangle "GradeForm" as GradeForm
+rectangle "EnterpriseCard" as EntCard
+rectangle "EnterpriseForm" as EntForm
+rectangle "<b>UI kit</b>" as UI
+rectangle "Button" as Btn
+rectangle "FormField\n(label + input + помилка)" as Field
+rectangle "Modal" as Modal
+rectangle "ConfirmDialog" as Confirm
+rectangle "StatusBadge" as Badge
+rectangle "Loader / EmptyState /\nErrorMessage" as Misc
+rectangle "<b>Data layer</b>" as Data
+rectangle "api/client.js\n(fetch, JSON, помилки)" as Client
+rectangle "api/resources.js\n(students, assignments, …)" as Res
+rectangle "hooks/useFetch.js\n(loading, error, data, reload)" as Hook
+rectangle "context/AuthContext.jsx" as Ctx
+
+App --> Layout
+App --> Ctx
+Layout --> Header
+Layout --> Nav
+Layout --> Footer
+Layout --> Pages
+Pages --> Login
+Pages --> Dash
+Pages --> Asg
+Pages --> AsgD
+Pages --> Ent
+Dash --> StatCard
+Asg --> AsgTable
+Asg --> AsgCard
+Asg --> AsgForm
+AsgD --> DiaryList
+AsgD --> DiaryForm
+AsgD --> GradeForm
+Ent --> EntCard
+Ent --> EntForm
+Feat --> UI
+AsgForm --> Modal
+AsgForm --> Field
+EntForm --> Field
+DiaryForm --> Field
+AsgTable --> Badge
+AsgCard --> Badge
+AsgTable --> Confirm
+UI --> Btn
+UI --> Misc
+Pages --> Data
+Data --> Hook
+Hook --> Res
+Res --> Client
+@enduml

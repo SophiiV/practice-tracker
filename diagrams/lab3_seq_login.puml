@@ -1,0 +1,34 @@
+@startuml lab3_seq_login
+' Діаграма послідовності: вхід у систему
+skinparam defaultFontName "Helvetica"
+skinparam defaultFontSize 12
+skinparam sequenceMessageAlign center
+skinparam sequence {
+  LifeLineBorderColor #2F5D8A
+  ParticipantBackgroundColor #F4F9FF
+  ParticipantBorderColor #2F5D8A
+}
+actor "Користувач" as U
+participant "Сторінка входу\n(React)" as UI
+participant "Сервер\n(REST API)" as S
+database "База даних" as DB
+
+U -> UI : ввести email і пароль,\nнатиснути «Увійти»
+activate UI
+UI -> UI : перевірити формат email,\nпароль не порожній
+UI -> S : POST /api/auth/login\n{email, password}
+activate S
+S -> DB : SELECT * FROM users WHERE email = ?
+DB --> S : рядок користувача
+S -> S : порівняти хеш пароля
+alt дані правильні
+  S --> UI : 200 OK {token, user}
+  UI -> UI : зберегти токен
+  UI --> U : відкрити головну панель
+else невірний email або пароль
+  S --> UI : 401 {message}
+  UI --> U : показати повідомлення\nпро помилку
+end
+deactivate S
+deactivate UI
+@enduml

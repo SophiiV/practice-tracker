@@ -1,0 +1,38 @@
+@startuml lab67_navigation
+' Карта навігації (переходи між екранами)
+skinparam defaultFontName "Helvetica"
+skinparam defaultFontSize 12
+skinparam state {
+  BackgroundColor #F4F9FF
+  BorderColor #2F5D8A
+  ArrowColor #2F5D8A
+}
+[*] --> Login : відкрити застосунок\n(немає сесії)
+state "Вхід у систему\n/login" as Login
+state "Головна панель (Dashboard)\n/" as Dash
+state "Направлення на практику\n/assignments" as Asg
+state "Картка направлення\n/assignments/:id" as AsgD
+state "Бази практики\n/enterprises" as Ent
+state "Модальна форма\nдодавання / редагування" as Modal
+state "Вкладки картки" as Tabs {
+  state "Щоденник\n(список + форма запису)" as Diary
+  state "Звіт" as Report
+  state "Оцінка" as Grade
+  Diary -right-> Report
+  Report -right-> Grade
+}
+
+Login --> Dash : успішний вхід
+Dash --> Asg : меню «Направлення»
+Dash --> Ent : меню «Бази практики»
+Dash --> AsgD : клік по картці\nостаннього запису
+Asg --> AsgD : клік по рядку /\n«Детальніше»
+Asg --> Modal : «+ Додати» /\n«Редагувати»
+Ent --> Modal : «+ Додати» /\n«Редагувати»
+Modal --> Asg : «Зберегти» /\n«Скасувати»
+AsgD --> Tabs
+AsgD --> Asg : «← Назад до списку»
+Asg --> Dash : меню «Головна»
+Ent --> Dash : меню «Головна»
+Dash --> Login : «Вийти»
+@enduml

@@ -1,0 +1,8 @@
+/* Спільні стилі для сторінок-списків (направлення, бази, студенти) */
+.filters { display: flex; gap: 0.6rem; flex-wrap: wrap; padding: 0.75rem 1rem; }
+.search { flex: 1 1 260px; padding: 0.5rem 0.75rem; border: 1px solid var(--color-border); border-radius: 8px; }
+.search:focus { outline: none; border-color: var(--color-primary); box-shadow: 0 0 0 3px rgba(47,93,138,0.15); }
+.select { padding: 0.5rem 0.6rem; border: 1px solid var(--color-border); border-radius: 8px; background: #fff; flex: 0 1 200px; }
+.cards { display: flex; flex-direction: column; gap: 0.7rem; }
+.cardGrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 0.9rem; }
+@media (max-width: 767px) { .select { flex: 1 1 45%; } }

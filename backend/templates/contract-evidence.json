@@ -1,0 +1,30 @@
+{
+  "reference": "/Users/sofiavasyliuk/Documents/4 курс/пікуляк проф практика/Проєкт/backend/templates/contract.docx",
+  "sha256": "161c4cee438bb57391d05a7568db3e3a1ecfd262880709695f34c5986bb1690c",
+  "pages": 2,
+  "sections": [
+    {
+      "width": 7560310,
+      "height": 10692130,
+      "top": 539750,
+      "bottom": 450215,
+      "left": 899795,
+      "right": 539750,
+      "start": "NEW_PAGE (2)"
+    }
+  ],
+  "parts": {
+    "[Content_Types].xml": "72e1a7e789e238175e21a964870a263fd2426d6877bd868693e211a4eb23e587",
+    "_rels/.rels": "e19238d7a71fa7a2490776252686f70e2de6238c87cd509b5e3a3cc07c2ea4df",
+    "word/_rels/document.xml.rels": "9e141c50779984ffc3ede59779724b8386a939a8095ba71943bf83172aebb5b3",
+    "word/document.xml": "c608f9ebe06509033ce52e7d990312d5da483794d152a8bb8a0d12e9a253246e",
+    "word/theme/theme1.xml": "705585663ba72fb917a0b66645256049e8a554fd77b0e06ab53131acddb5ec3e",
+    "word/settings.xml": "5f236df3e1bfd6f94f188299f1d234a611641d878df63f5e832d852f27a64118",
+    "word/webSettings.xml": "0f4968f3a5aa3bec511b683f63c9978c2660c820eaa2343e14cf38f8db3db0d9",
+    "word/styles.xml": "78fab68b2c10c8ff9e70a8e7d8508a823d521bdc7e8947ee106f038de430ddbb",
+    "docProps/core.xml": "520dfae868eb4d0c845aa5918c3b816d007e053063ebdaa020e7b97e1f31f5d9",
+    "word/numbering.xml": "b9dd847f3b3885d9f1bdd7569fd8c309f26949cca40dad483ccfdfd13cddd963",
+    "word/fontTable.xml": "4e0db574bfc019cf644f918233f4e12e07fc278aa73672af5bc070cf1464ceb5",
+    "docProps/app.xml": "8f91ca5e063791fb5bdbdb42835fb887c873a8eb63ba0eb76417544a08431bee"
+  }
+}

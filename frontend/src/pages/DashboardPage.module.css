@@ -1,0 +1,11 @@
+.stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0.9rem; }
+.columns { display: grid; grid-template-columns: 2fr 1fr; gap: 1rem; align-items: start; }
+.desc { max-width: 320px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.barRow { display: grid; grid-template-columns: 150px 1fr 28px; align-items: center; gap: 0.6rem; margin: 0.55rem 0; font-size: 0.9rem; }
+.barLabel { color: var(--color-text-muted); }
+.barTrack { height: 10px; background: #eef0f3; border-radius: 999px; overflow: hidden; }
+.barFill { height: 100%; border-radius: 999px; transition: width 0.4s; }
+.barValue { text-align: right; font-weight: 600; }
+.gray { background: #9ca3af; } .blue { background: var(--color-primary); } .orange { background: var(--color-warning); } .green { background: var(--color-success); }
+@media (max-width: 1100px) { .stats { grid-template-columns: repeat(2, 1fr); } .columns { grid-template-columns: 1fr; } }
+@media (max-width: 767px) { .barRow { grid-template-columns: 110px 1fr 24px; } }

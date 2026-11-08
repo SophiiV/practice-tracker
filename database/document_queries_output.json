@@ -1,0 +1,66 @@
+[
+  {
+    "sql": "SELECT name FROM sqlite_master WHERE type='table' AND name NOT LIKE 'sqlite_%' ORDER BY name",
+    "rows": [
+      {
+        "name": "assignments"
+      },
+      {
+        "name": "diary_documents"
+      },
+      {
+        "name": "diary_entries"
+      },
+      {
+        "name": "diary_schedule"
+      },
+      {
+        "name": "enterprises"
+      },
+      {
+        "name": "grades"
+      },
+      {
+        "name": "practice_contracts"
+      },
+      {
+        "name": "practice_periods"
+      },
+      {
+        "name": "students"
+      },
+      {
+        "name": "teachers"
+      },
+      {
+        "name": "users"
+      }
+    ]
+  },
+  {
+    "sql": "SELECT a.id,u.full_name,c.number,d.faculty FROM assignments a JOIN students s ON s.id=a.student_id JOIN users u ON u.id=s.user_id LEFT JOIN practice_contracts c ON c.assignment_id=a.id LEFT JOIN diary_documents d ON d.assignment_id=a.id WHERE a.id=2",
+    "rows": [
+      {
+        "id": 2,
+        "full_name": "Василюк Софія Ярославівна",
+        "number": "DEMO-001",
+        "faculty": "Факультет математики та інформатики"
+      }
+    ]
+  },
+  {
+    "sql": "SELECT title,start_date,end_date,completed FROM diary_schedule WHERE assignment_id=2",
+    "rows": [
+      {
+        "title": "Розроблення модуля",
+        "start_date": "2025-11-03",
+        "end_date": "2025-11-07",
+        "completed": 0
+      }
+    ]
+  },
+  {
+    "sql": "PRAGMA foreign_key_check",
+    "rows": []
+  }
+]

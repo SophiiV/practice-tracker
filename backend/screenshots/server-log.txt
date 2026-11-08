@@ -1,0 +1,16 @@
+[db] база даних: /Users/sofiavasyliuk/Documents/4 курс/пікуляк проф практика/Проєкт/database/practice.db
+[server] «Трекер Практики» — сервер запущено: http://localhost:3001
+[server] перевірка працездатності: GET /health
+[23:57:11] POST /auth/login → 200 (105 мс)
+[23:57:11] POST /auth/login → 200 (63 мс)
+[23:57:11] POST /auth/login → 200 (63 мс)
+[23:57:11] POST /auth/login → 401 (62 мс)
+[23:57:11] GET /assignments → 401 (0 мс)
+[23:57:11] GET /assignments?_expand=student → 200 (1 мс)
+[23:57:11] GET /assignments/4 → 403 (0 мс)
+[23:57:11] POST /assignments → 422 (1 мс)
+[23:57:11] POST /assignments → 201 (1 мс)
+[23:57:11] POST /diaryEntries → 201 (1 мс)
+[23:57:11] PATCH /diaryEntries/14 → 200 (0 мс)
+[23:57:11] DELETE /assignments/7 → 204 (1 мс)
+[23:57:11] GET /assignments/stats → 200 (0 мс)

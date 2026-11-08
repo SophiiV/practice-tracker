@@ -1,0 +1,60 @@
+@startuml lab4_architecture
+' Архітектурна діаграма: клієнт-сервер, багаторівневий сервер, REST API
+skinparam defaultFontName "Helvetica"
+skinparam defaultFontSize 12
+skinparam componentStyle rectangle
+skinparam rectangle {
+  BackgroundColor #FFFFFF
+  BorderColor #2F5D8A
+}
+skinparam component {
+  BackgroundColor #F4F9FF
+  BorderColor #2F5D8A
+}
+skinparam database {
+  BackgroundColor #FFF6E5
+}
+skinparam node {
+  BackgroundColor #FAFAFA
+}
+
+node "Клієнт (браузер на ПК або смартфоні)" as ClientNode {
+  rectangle "Рівень представлення — React (SPA)" as Pres {
+    component "Сторінки\nВхід · Головна · Направлення ·\nКартка направлення · Бази практики" as Pages
+    component "UI-компоненти\nформи, таблиці, картки, модальні вікна" as Comp
+    component "API-клієнт\n(fetch + токен + обробка помилок)" as Api
+  }
+}
+
+node "Сервер (Node.js + Express)" as ServerNode {
+  rectangle "Рівень API" as ApiLayer {
+    component "Маршрути REST\n/api/auth · /api/assignments ·\n/api/diaryEntries · /api/enterprises ·\n/api/students · /api/grades" as Ctrl
+    component "Перевірка доступу\n(токен, роль)" as MW
+  }
+  rectangle "Рівень бізнес-логіки" as BLL {
+    component "AuthService" as S1
+    component "AssignmentService\n(направлення, звіти, статуси, статистика)" as S2
+    component "DiaryService" as S3
+    component "GradeService" as S5
+  }
+  rectangle "Рівень доступу до даних" as DAL {
+    component "Модуль БД\n(SQL-запити до таблиць)" as Repo
+  }
+}
+
+database "База даних\nSQLite" as DB
+
+Pages --> Comp
+Comp --> Api
+Api -[#1B6E20,bold]-> Ctrl : HTTP · JSON\nAuthorization: Bearer <token>
+Ctrl --> MW
+Ctrl --> S1
+Ctrl --> S2
+Ctrl --> S3
+Ctrl --> S5
+S1 --> Repo
+S2 --> Repo
+S3 --> Repo
+S5 --> Repo
+Repo -[#8A6D00,bold]-> DB : SQL
+@enduml

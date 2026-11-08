@@ -1,0 +1,116 @@
+@startuml lab3_class
+' Діаграма класів (доменна модель)
+skinparam defaultFontName "Helvetica"
+skinparam defaultFontSize 11
+skinparam classAttributeIconSize 0
+skinparam class {
+  BackgroundColor #F4F9FF
+  BorderColor #2F5D8A
+  ArrowColor #2F5D8A
+}
+hide empty methods
+
+enum Role {
+  STUDENT
+  TEACHER
+  ADMIN
+}
+enum AssignmentStatus {
+  ASSIGNED
+  IN_PROGRESS
+  REPORT_SUBMITTED
+  DEFENDED
+}
+enum EntryStatus {
+  SUBMITTED
+  APPROVED
+  REJECTED
+}
+
+class User {
+  - id: int
+  - fullName: string
+  - email: string
+  - passwordHash: string
+  - role: Role
+  - phone: string
+  + checkPassword(raw: string): bool
+}
+class Student {
+  - id: int
+  - groupName: string
+  - recordBookNumber: string
+  + getAssignments(): Assignment[]
+}
+class Teacher {
+  - id: int
+  - department: string
+  - position: string
+  + getStudents(period: PracticePeriod): Student[]
+}
+class Enterprise {
+  - id: int
+  - name: string
+  - address: string
+  - phone: string
+  - email: string
+  - contractNumber: string
+  - contractDate: Date
+  - isActive: bool
+}
+class PracticePeriod {
+  - id: int
+  - type: string
+  - academicYear: string
+  - semester: int
+  - startDate: Date
+  - endDate: Date
+  - hours: int
+  + contains(date: Date): bool
+}
+class Assignment {
+  - id: int
+  - supervisorName: string
+  - orderNumber: string
+  - orderDate: Date
+  - status: AssignmentStatus
+  - reportFileName: string
+  - reportSubmittedAt: Date
+  - reportStatus: string
+  + submitReport(fileName: string): void
+  + changeStatus(next: AssignmentStatus): void
+  + totalHours(): float
+}
+class DiaryEntry {
+  - id: int
+  - entryDate: Date
+  - description: string
+  - hours: float
+  - status: EntryStatus
+  - teacherComment: string
+  + approve(): void
+  + reject(comment: string): void
+}
+class Grade {
+  - id: int
+  - enterpriseGrade: int
+  - teacherGrade: int
+  - finalScore: int
+  - ectsGrade: string
+  - nationalGrade: string
+  - defenseDate: Date
+  + calculate(): void
+}
+
+User "1" -- "0..1" Student
+User "1" -- "0..1" Teacher
+Student "1" -- "*" Assignment
+Teacher "1" -- "*" Assignment : керує >
+Enterprise "1" -- "*" Assignment
+PracticePeriod "1" -- "*" Assignment
+Assignment "1" *-- "*" DiaryEntry : щоденник
+Assignment "1" *-- "0..1" Grade
+User ..> Role
+Assignment ..> AssignmentStatus
+DiaryEntry ..> EntryStatus
+@enduml

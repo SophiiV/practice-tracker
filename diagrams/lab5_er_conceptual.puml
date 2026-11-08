@@ -1,0 +1,36 @@
+@startuml lab5_er_conceptual
+' Концептуальна ER-модель (нотація «воронячі лапки»)
+skinparam defaultFontName "Helvetica"
+skinparam defaultFontSize 12
+skinparam linetype ortho
+skinparam entity {
+  BackgroundColor #FFFBE6
+  BorderColor #8A6D00
+}
+hide circle
+hide empty members
+
+entity "Користувач\n(users)" as users
+entity "Студент\n(students)" as students
+entity "Викладач\n(teachers)" as teachers
+entity "База практики\n(enterprises)" as enterprises
+entity "Період практики\n(practice_periods)" as periods
+entity "Направлення\n(assignments)" as assignments
+entity "Запис щоденника\n(diary_entries)" as diary
+entity "Оцінка\n(grades)" as grades
+
+users       ||--o| students    : є профілем
+users       ||--o| teachers    : є профілем
+students    ||--o{ assignments : направляється
+periods     ||--o{ assignments : проводиться у
+enterprises ||--o{ assignments : приймає
+teachers    ||--o{ assignments : керує
+assignments ||--o{ diary       : веде
+assignments ||--o| grades      : оцінюється
+entity "Договір студента\n(practice_contracts)" as contracts
+entity "Оформлення щоденника\n(diary_documents)" as docs
+entity "Пункт календарного графіка\n(diary_schedule)" as schedule
+assignments ||--o| contracts : має
+assignments ||--o| docs : має
+ docs ||--o{ schedule : містить
+@enduml

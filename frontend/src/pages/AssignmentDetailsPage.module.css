@@ -1,0 +1,16 @@
+.back { display: inline-block; font-size: 0.9rem; text-decoration: none; }
+.back:hover { text-decoration: underline; }
+.info { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.9rem 1.5rem; }
+.info > div { display: flex; flex-direction: column; font-size: 0.93rem; }
+.info > div > span:first-child { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em; }
+.progress { height: 6px; background: #eef0f3; border-radius: 999px; margin-top: 0.4rem; overflow: hidden; }
+.progress > div { height: 100%; background: var(--color-success); }
+.tabs { display: flex; gap: 0.25rem; border-bottom: 1px solid var(--color-border); }
+.tab { background: none; border: none; padding: 0.6rem 1rem; cursor: pointer; color: var(--color-text-muted); font-weight: 500; border-bottom: 2px solid transparent; margin-bottom: -1px; }
+.tab:hover { color: var(--color-text); }
+.tabActive { color: var(--color-primary); border-bottom-color: var(--color-primary); }
+.grade { display: flex; align-items: center; gap: 1.25rem; }
+.score { font-size: 2.6rem; font-weight: 700; color: var(--color-primary); line-height: 1; }
+.score span { font-size: 1rem; color: var(--color-text-muted); font-weight: 500; }
+@media (max-width: 900px) { .info { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) { .info { grid-template-columns: 1fr; } }

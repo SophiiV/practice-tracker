@@ -1,0 +1,31 @@
+@startuml lab67_components_v2
+skinparam defaultFontName Helvetica
+skinparam defaultFontSize 14
+rectangle App {
+ rectangle AuthProvider
+ rectangle Router {
+ rectangle LoginPage
+ rectangle RegisterPage
+ rectangle Layout {
+ rectangle Header
+ rectangle Nav
+ rectangle Main {
+ rectangle DashboardPage
+ rectangle AssignmentsPage
+ rectangle AssignmentDetailsPage {
+ rectangle DiaryForm
+ rectangle DiaryList
+ rectangle DocumentEditor {
+ rectangle DocumentForm
+ rectangle FormField
+ rectangle Button
+ }
+ }
+ rectangle MaterialsPage
+ rectangle EnterprisesPage
+ }
+ rectangle Footer
+ }
+ }
+}
+@enduml

@@ -1,0 +1,27 @@
+@startuml lab67_navigation_v2
+skinparam defaultFontName Helvetica
+skinparam defaultFontSize 14
+left to right direction
+rectangle "Вхід" as login
+rectangle "Реєстрація студента" as register
+rectangle "Головна" as home
+rectangle "Направлення\nПошук і фільтри" as list
+rectangle "Картка направлення" as details
+rectangle "Щоденник\nРобочі записи" as diary
+rectangle "Документи\nДоговір і щоденник" as docs
+rectangle "Чернетка у БД" as draft
+rectangle "Завантаження DOCX" as export
+rectangle "Матеріали\nІнструктаж PDF і бланки" as materials
+rectangle "Бази практики" as enterprises
+login --> register
+register --> login
+login --> home
+home --> list
+home --> materials
+home --> enterprises
+list --> details
+details --> diary
+details --> docs
+docs --> draft
+docs --> export
+@enduml

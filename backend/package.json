@@ -1,0 +1,22 @@
+{
+  "name": "practice-tracker-backend",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Серверна частина ІС обліку та контролю проходження студентами виробничої практики «Трекер Практики»",
+  "type": "module",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "init-db": "node src/initDb.js",
+    "test": "node --test tests/*.test.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2"
+  },
+  "engines": {
+    "node": ">=22.13.0"
+  }
+}

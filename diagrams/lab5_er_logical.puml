@@ -1,0 +1,131 @@
+@startuml lab5_er_logical
+' Логічна модель БД (таблиці, атрибути, типи, PK/FK)
+skinparam defaultFontName "Helvetica"
+skinparam defaultFontSize 11
+skinparam linetype ortho
+skinparam entity {
+  BackgroundColor #F4F9FF
+  BorderColor #2F5D8A
+}
+hide circle
+
+entity "users" as users {
+  * **id** : INTEGER <<PK>>
+  --
+  * full_name : TEXT
+  * email : TEXT <<UNIQUE>>
+  * password_hash : TEXT
+  * role : TEXT {student|teacher|admin}
+    phone : TEXT
+}
+entity "students" as students {
+  * **id** : INTEGER <<PK>>
+  --
+  * user_id : INTEGER <<FK, UNIQUE>>
+  * group_name : TEXT
+  * record_book_number : TEXT <<UNIQUE>>
+}
+entity "teachers" as teachers {
+  * **id** : INTEGER <<PK>>
+  --
+  * user_id : INTEGER <<FK, UNIQUE>>
+  * department : TEXT
+  * position : TEXT
+}
+entity "enterprises" as enterprises {
+  * **id** : INTEGER <<PK>>
+  --
+  * name : TEXT
+  * address : TEXT
+    phone : TEXT
+    email : TEXT
+    contract_number : TEXT
+    contract_date : TEXT
+  * is_active : INTEGER
+}
+entity "practice_periods" as periods {
+  * **id** : INTEGER <<PK>>
+  --
+  * type : TEXT
+  * academic_year : TEXT
+  * semester : INTEGER
+  * start_date : TEXT
+  * end_date : TEXT
+  * hours : INTEGER
+}
+entity "assignments" as assignments {
+  * **id** : INTEGER <<PK>>
+  --
+  * student_id : INTEGER <<FK>>
+  * period_id : INTEGER <<FK>>
+  * enterprise_id : INTEGER <<FK>>
+  * teacher_id : INTEGER <<FK>>
+    supervisor_name : TEXT
+    order_number : TEXT
+    order_date : TEXT
+  * status : TEXT
+    report_file_name : TEXT
+    report_submitted_at : TEXT
+    report_status : TEXT
+  .. UNIQUE(student_id, period_id) ..
+}
+entity "diary_entries" as diary {
+  * **id** : INTEGER <<PK>>
+  --
+  * assignment_id : INTEGER <<FK>>
+  * entry_date : TEXT
+  * description : TEXT
+  * hours : REAL
+  * status : TEXT
+    teacher_comment : TEXT
+}
+entity "grades" as grades {
+  * **id** : INTEGER <<PK>>
+  --
+  * assignment_id : INTEGER <<FK, UNIQUE>>
+  * enterprise_grade : INTEGER
+  * teacher_grade : INTEGER
+  * final_score : INTEGER
+  * ects_grade : TEXT
+  * national_grade : TEXT
+  * defense_date : TEXT
+    comment : TEXT
+}
+
+users       ||--o| students
+users       ||--o| teachers
+students    ||--o{ assignments
+periods     ||--o{ assignments
+enterprises ||--o{ assignments
+teachers    ||--o{ assignments
+assignments ||--o{ diary
+assignments ||--o| grades
+entity "practice_contracts" as contracts {
+  * assignment_id : INTEGER <<PK, FK>>
+  --
+  number, city, signedOn : TEXT
+  enterpriseName, representative : TEXT
+  authority, address, email : TEXT
+  course, specialty, validUntil : TEXT
+  additionalTerms, updated_at : TEXT
+}
+entity "diary_documents" as docs {
+  * assignment_id : INTEGER <<PK, FK>>
+  --
+  faculty, department, qualification : TEXT
+  educationProgram, specialty, course : TEXT
+  arrivedOn, departedOn : TEXT
+  responsiblePerson, updated_at : TEXT
+}
+entity "diary_schedule" as schedule {
+  * id : INTEGER <<PK>>
+  * assignment_id : INTEGER <<FK>>
+  * position : INTEGER
+  title, start_date, end_date : TEXT
+  completed : INTEGER
+  .. UNIQUE(assignment_id, position) ..
+}
+assignments ||--o| contracts : має
+assignments ||--o| docs : має
+ docs ||--o{ schedule : містить
+@enduml

@@ -1,0 +1,23 @@
+@startuml lab4_layers
+' Рівні та потік обробки запиту
+skinparam defaultFontName "Helvetica"
+skinparam defaultFontSize 12
+skinparam rectangle {
+  BackgroundColor #F4F9FF
+  BorderColor #2F5D8A
+  RoundCorner 8
+}
+rectangle "1. Представлення — React у браузері\nсторінки, форми, перевірка введених даних" as L1
+rectangle "2. API — Express\nмаршрути REST, перевірка токена і ролі" as L2
+rectangle "3. Бізнес-логіка — сервіси\nправила: статуси, розрахунок оцінки, права на дані" as L3
+rectangle "4. Доступ до даних — SQL-запити" as L4
+rectangle "5. База даних — SQLite\nтаблиці, ключі, обмеження" as L5
+L1 -down-> L2 : HTTP-запит (JSON)
+L2 -down-> L3 : виклик сервісу
+L3 -down-> L4 : виклик функції
+L4 -down-> L5 : SQL
+L5 .up.> L4 : рядки
+L4 .up.> L3 : об'єкти
+L3 .up.> L2 : результат або помилка
+L2 .up.> L1 : HTTP-відповідь (JSON, код статусу)
+@enduml

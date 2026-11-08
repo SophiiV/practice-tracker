@@ -1,0 +1,59 @@
+{
+  "reference": "/Users/sofiavasyliuk/Documents/4 курс/пікуляк проф практика/Проєкт/backend/templates/diary.docx",
+  "sha256": "52e93f278f31e38ef00c0e5baa704349e3c447f718b62df5399cae91810f2257",
+  "pages": 4,
+  "sections": [
+    {
+      "width": 7556500,
+      "height": 10692130,
+      "top": 539115,
+      "bottom": 96520,
+      "left": 723900,
+      "right": 588010,
+      "start": "NEW_PAGE (2)"
+    },
+    {
+      "width": 7556500,
+      "height": 10692130,
+      "top": 539115,
+      "bottom": 96520,
+      "left": 723900,
+      "right": 588010,
+      "start": "CONTINUOUS (0)"
+    },
+    {
+      "width": 7556500,
+      "height": 10692130,
+      "top": 542925,
+      "bottom": 96520,
+      "left": 723900,
+      "right": 588010,
+      "start": "NEW_PAGE (2)"
+    },
+    {
+      "width": 7556500,
+      "height": 10692130,
+      "top": 539750,
+      "bottom": 539750,
+      "left": 899795,
+      "right": 539750,
+      "start": "NEW_PAGE (2)"
+    }
+  ],
+  "parts": {
+    "word/numbering.xml": "d2a3e08465525eee874ea10d780540816951a37b115e90f1cd56aefdd76adc2e",
+    "word/settings.xml": "26f2853fde05b88d4b0a9da0bb016d56a896901f60c9272dddf33c3f3fa61e4a",
+    "word/fontTable.xml": "93599d173bddfaa7db8e22a2cc52998598b0046877dff2ffc704145e033b8264",
+    "word/styles.xml": "3b0511a8e08b87a519ffb7f504e4cc4c17a301d9199808469a36617edde3b7ea",
+    "customXML/itemProps1.xml": "fc2e321bb5ca54d5f2b99b99f91d681d004417098918a318be88fe525218c9a3",
+    "customXML/item1.xml": "430f3d87db26302fff94a41227d604c259801cede8b0593bdaf45f064e6aff7b",
+    "customXML/_rels/item1.xml.rels": "26ac718f80df621ee703e3c0f143a63034967c5fe65fbfdcefbf96419235355e",
+    "docProps/core.xml": "8e94199c729695c77833106a894739e9e3209f364c5bc29f034744072212dbcc",
+    "word/document.xml": "b199974d267128f39827f6da1c48de771e59607d7e8e1c8ad2c15fdac133e312",
+    "word/_rels/document.xml.rels": "e64a805383f3bdc53dd5c0026f2a901c6f461bbe066e68179b7461825994a577",
+    "_rels/.rels": "450973054150e155baa20de9ae4d682cf52545a537ed2b84ed78400b7dc15ddc",
+    "word/theme/theme1.xml": "506455ae2e3a6f1c629b15b732ec89a77e67b015f5000af0b117d511c4f684e6",
+    "word/media/image28.png": "18d840af2c50eff9a5241d4b50833a596e6b71af0cee87cf2b3435345f2f7aba",
+    "[Content_Types].xml": "a8894c6205708a13a2bd278060576e31d6a1785b91f26ef1ef384981167ecf0b"
+  }
+}
