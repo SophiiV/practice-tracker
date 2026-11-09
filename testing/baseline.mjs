@@ -1,0 +1,14 @@
+import fs from 'node:fs';
+import {validateDiaryEntry} from '../backend/src/utils/validate.js';
+console.log('Baseline before fixes. Reproduced on 2026-10-19.');
+console.log('BUG-01: 2026-02-30; expected date error; actual:',JSON.stringify(validateDiaryEntry({date:'2026-02-30',hours:6,description:'Перевірка календарної дати.'},{start_date:'2026-02-01',end_date:'2026-03-31'})));
+process.env.DB_PATH='/tmp/practice-baseline-'+Date.now()+'.db';
+const {app}=await import('../backend/src/app.js');
+const server=app.listen(0,'127.0.0.1'); await new Promise(r=>server.once('listening',r));
+const base='http://127.0.0.1:'+server.address().port;
+const login=await fetch(base+'/auth/login',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:'sofiia.vasyliuk.23@pnu.edu.ua',password:'praktyka2026'})}).then(r=>r.json());
+const res=await fetch(base+'/assignments/2',{method:'PATCH',headers:{'Content-Type':'application/json',Authorization:'Bearer '+login.token},body:JSON.stringify({status:'defended'})});
+console.log('BUG-02: student self-marks defended; expected 403; actual',res.status,await res.text());
+const malformed=await fetch(base+'/auth/login',{method:'POST',headers:{'Content-Type':'application/json'},body:'{'});
+console.log('BUG-03: malformed JSON; expected 400; actual',malformed.status);
+server.close();const {db}=await import('../backend/src/db.js');db.close();fs.unlinkSync(process.env.DB_PATH);

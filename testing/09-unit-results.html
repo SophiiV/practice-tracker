@@ -1,0 +1,23 @@
+<!doctype html><meta charset="utf-8"><style>body{font:20px Arial;margin:36px;color:#172b40;background:#f5f8fb}h1{font-size:30px}p{color:#52677a}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:white;border:1px solid #cbd5e1;border-radius:12px;padding:24px;font:19px/1.6 monospace}</style><h1>Модульне тестування</h1><p>Трекер Практики · Lab 11 · 19 жовтня 2026</p><p>Команда: npm run test:unit. Нижче наведено фактичний журнал виконання.</p><pre>
+&gt; practice-tracker-backend@1.0.0 test:unit
+&gt; node --test tests/unit.test.js
+
+✔ UT-01: високосна дата 2024-02-29 коректна (1.02375ms)
+✔ UT-02: неіснуючі дати відхиляються (0.093167ms)
+✔ UT-03: формат і тип дати перевіряються (0.063084ms)
+✔ UT-04: неповна чернетка дозволена (0.381833ms)
+✔ UT-05: експорт без реквізитів заборонений (0.085ms)
+✔ UT-06: строк договору не коротший за практику (0.071667ms)
+✔ UT-07: графік за межами періоду відхиляється (0.075542ms)
+✔ UT-08: правильна реєстрація проходить валідацію (0.104292ms)
+✔ UT-09: короткий пароль і привілейована роль відхиляються (0.077208ms)
+✔ UT-10: граничні години і некоректні значення (0.167584ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 10
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 48.155042
+</pre>

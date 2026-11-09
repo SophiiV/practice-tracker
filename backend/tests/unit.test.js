@@ -1,0 +1,16 @@
+import { test } from 'node:test';
+import assert from 'node:assert/strict';
+import { isCalendarDate, validateDocument } from '../src/utils/documentValidation.js';
+import { validateRegistration } from '../src/utils/registrationValidation.js';
+import { validateDiaryEntry } from '../src/utils/validate.js';
+const period={startDate:'2026-02-01',endDate:'2026-03-01'};
+test('UT-01: високосна дата 2024-02-29 коректна',()=>assert.equal(isCalendarDate('2024-02-29'),true));
+test('UT-02: неіснуючі дати відхиляються',()=>{for(const d of ['2026-02-29','2026-02-30','2026-04-31','2026-13-01']) assert.equal(isCalendarDate(d),false);});
+test('UT-03: формат і тип дати перевіряються',()=>{for(const d of [null,{},42,'01.02.2026','2026-2-1']) assert.equal(isCalendarDate(d),false);});
+test('UT-04: неповна чернетка дозволена',()=>assert.deepEqual(validateDocument('contract',{},period),{}));
+test('UT-05: експорт без реквізитів заборонений',()=>{const e=validateDocument('contract',{},period,true);assert.ok(e.number);assert.ok(e.representative);assert.ok(e.validUntil);});
+test('UT-06: строк договору не коротший за практику',()=>assert.ok(validateDocument('contract',{signedOn:'2026-01-30',validUntil:'2026-02-28'},period).validUntil));
+test('UT-07: графік за межами періоду відхиляється',()=>assert.ok(validateDocument('diary',{schedule:[{title:'Розробка',startDate:'2026-01-01',endDate:'2026-02-01',completed:false}]},period)['schedule.0.dates']));
+test('UT-08: правильна реєстрація проходить валідацію',()=>assert.deepEqual(validateRegistration({fullName:'Тестова Марія',groupName:'ІПЗ-41',recordBookNumber:'TEST-001',email:'test@example.com',password:'Testing123!'}),{}));
+test('UT-09: короткий пароль і привілейована роль відхиляються',()=>{const e=validateRegistration({password:'123',role:'admin'});assert.ok(e.password);assert.ok(e.role);});
+test('UT-10: граничні години і некоректні значення',()=>{for(const h of [1,12]) assert.equal(validateDiaryEntry({date:'2026-02-01',hours:h,description:'Розробка програмного модуля.'}).hours,'');for(const h of [0,13,true,Infinity]) assert.ok(validateDiaryEntry({date:'2026-02-01',hours:h,description:'Розробка програмного модуля.'}).hours);});

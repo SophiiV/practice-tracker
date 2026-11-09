@@ -1,0 +1,24 @@
+Baseline before fixes. Reproduced on 2026-10-19.
+BUG-01: 2026-02-30; expected date error; actual: {"date":"","hours":"","description":""}
+[db] база даних: /tmp/practice-baseline-1792438101301.db (створено)
+[22:28:21] POST /auth/login → 200 (111 мс)
+[22:28:21] PATCH /assignments/2 → 200 (2 мс)
+BUG-02: student self-marks defended; expected 403; actual 200 {"id":2,"studentId":1,"periodId":2,"enterpriseId":1,"teacherId":1,"supervisorName":"Гринів Олег Романович","orderNumber":"№ 815-с","orderDate":"2025-10-28","status":"defended","reportFileName":"zvit_vasyliuk_2026.pdf","reportSubmittedAt":"2025-11-28","reportStatus":"submitted"}
+[error] SyntaxError: Expected property name or '}' in JSON at position 1 (line 1 column 2)
+    at JSON.parse (<anonymous>)
+    at parse (/Users/sofiavasyliuk/Documents/4 курс/пікуляк проф практика/Проєкт/backend/node_modules/body-parser/lib/types/json.js:96:19)
+    at /Users/sofiavasyliuk/Documents/4 курс/пікуляк проф практика/Проєкт/backend/node_modules/body-parser/lib/read.js:128:18
+    at AsyncResource.runInAsyncScope (node:async_hooks:226:14)
+    at invokeCallback (/Users/sofiavasyliuk/Documents/4 курс/пікуляк проф практика/Проєкт/backend/node_modules/raw-body/index.js:238:16)
+    at done (/Users/sofiavasyliuk/Documents/4 курс/пікуляк проф практика/Проєкт/backend/node_modules/raw-body/index.js:227:7)
+    at IncomingMessage.onEnd (/Users/sofiavasyliuk/Documents/4 курс/пікуляк проф практика/Проєкт/backend/node_modules/raw-body/index.js:287:7)
+    at IncomingMessage.emit (node:events:514:20)
+    at endReadableNT (node:internal/streams/readable:1966:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {
+  expose: true,
+  statusCode: 400,
+  status: 400,
+  body: '{',
+  type: 'entity.parse.failed'
+}
+BUG-03: malformed JSON; expected 400; actual 500

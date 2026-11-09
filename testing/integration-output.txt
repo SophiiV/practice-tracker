@@ -1,0 +1,16 @@
+
+> practice-tracker-backend@1.0.0 test:integration
+> node --test tests/integration.test.js
+
+[db] база даних: /var/folders/q_/gmbl4wjx7pg_lk5rvb7wwrgm0000gn/T/practice-integration-ryu8H9/test.db (створено)
+✔ IT-01: Реєстрація → сервіс → users і students → повторне з’єднання (84.983ms)
+✔ IT-02: Щоденник → транзакція → метадані і календарний графік (2.054792ms)
+✔ IT-03: Видалення направлення → каскадне видалення документів і графіка (1.574625ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 133.861541

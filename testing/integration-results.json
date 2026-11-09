@@ -1,0 +1,33 @@
+[
+  {
+    "id": "IT-01",
+    "name": "Реєстрація → сервіс → users і students → повторне з’єднання",
+    "actual": {
+      "userId": 9,
+      "fullName": "Інтеграційна Марія",
+      "email": "integration@example.com",
+      "groupName": "ІПЗ-41",
+      "role": "student",
+      "passwordStoredAsHash": true
+    },
+    "status": "PASS"
+  },
+  {
+    "id": "IT-02",
+    "name": "Щоденник → транзакція → метадані і календарний графік",
+    "actual": {
+      "assignmentId": 2,
+      "faculty": "Тестовий факультет",
+      "title": "Розробка форми",
+      "start_date": "2025-11-03",
+      "end_date": "2025-11-07"
+    },
+    "status": "PASS"
+  },
+  {
+    "id": "IT-03",
+    "name": "Видалення направлення → каскадне видалення документів і графіка",
+    "actual": "Направлення 2 видалено; 0 залежних рядків; foreign_key_check без порушень",
+    "status": "PASS"
+  }
+]
