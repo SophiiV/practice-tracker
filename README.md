@@ -1,5 +1,13 @@
 # Трекер практики
 
+Для лабораторної 12 використовується окрема гілка `lab12-design-patterns`. Зміни відносно лабораторної 11 можна подивитися командою:
+
+```sh
+git diff lab11 lab12 -- backend/src backend/tests
+```
+
+&nbsp;
+
 У застосунку можна зареєструватися, створити направлення на практику, вести щоденник і виставити оцінку. Доступ залежить від ролі: адміністратор, керівник або студент. Також є заповнення договору та щоденника з завантаженням у DOCX і перегляд інструктажу з безпеки.
 
 Frontend написаний на React, backend — на Node.js та Express. База даних — SQLite.
@@ -34,25 +42,24 @@ npm --prefix frontend run dev
 - `shared` — спільні поля документів;
 - `diagrams` — діаграми.
 - `testing` — сценарії тестування, результати та скріншоти.
+- `refactoring` — матеріали рефакторингу.
 
-## Тестування — лабораторна 11
+## Рефакторинг — лабораторна 12
 
-До API-тестів додані функціональні, модульні та інтеграційні перевірки. Разом — 69 серверних тестів. Сценарії, результати та опис знайдених помилок лежать у `testing`.
+Для розрахунку оцінки використано Strategy, для створення договору й щоденника — Factory Method. При збереженні оцінки залишається початкова формула середнього. Зважена формула додана як приклад іншої стратегії.
+
+У папці `refactoring` є початкові версії сервісів, діаграми до і після змін та результати перевірок. Опис реалізації — у [refactoring/README.md](refactoring/README.md).
 
 ```sh
+npm --prefix backend run demo:patterns
+npm --prefix backend run test:patterns
 npm --prefix backend test
-npm --prefix backend run test:unit
-npm --prefix backend run test:integration
 npm --prefix frontend run build
+node refactoring/verify-grade-equivalence.mjs
 ```
 
-Для перевірки інтерфейсу потрібен Google Chrome:
+Окремо запускаються 24 тести патернів. Повний запуск містить 94 Node-тести, один з яких виконує 7 Python-перевірок оформлення DOCX. У збережених журналах рефакторингу є 93 тести — це результат до додавання перевірки оформлення.
 
-```sh
-npm --prefix testing install
-npm --prefix testing run test:ui
-```
-
-Тести використовують тимчасову базу та записують результати в `testing`. Детальніше — у testing/README.md.
+Матеріали тестування з лабораторної 11 залишилися в testing. Виправлення DOCX описані в [testing/document-layout-fix.md](testing/document-layout-fix.md).
 
 Деталі серверної частини — у backend/README.md.

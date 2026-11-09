@@ -1,0 +1,15 @@
+{
+  "date": "2026-11-09",
+  "status": "PASS",
+  "comparedPairs": 10201,
+  "inputDomain": "All integer enterpriseGrade and teacherGrade values from 0 through 100",
+  "comparedFields": [
+    "finalScore",
+    "ectsGrade",
+    "nationalGrade"
+  ],
+  "reference": "refactoring/before/gradeService.js (original SCALE and calculate body)",
+  "implementation": "backend/src/patterns/grades/GradeCalculator.js (default strategy)",
+  "mismatches": 0,
+  "note": "Additional exhaustive comparison, not included in npm test test count."
+}

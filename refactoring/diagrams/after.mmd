@@ -1,0 +1,66 @@
+classDiagram
+  direction LR
+  class gradeService {
+    +calculate(enterpriseGrade, teacherGrade, strategy)
+    +save(user, data)
+  }
+  class GradeCalculator {
+    -strategy
+    +calculate(enterpriseGrade, teacherGrade)
+  }
+  class GradeStrategy {
+    <<abstract>>
+    +calculateFinalScore(enterpriseGrade, teacherGrade)
+  }
+  class AverageGradeStrategy {
+    +calculateFinalScore(enterpriseGrade, teacherGrade)
+  }
+  class WeightedGradeStrategy {
+    +enterpriseWeight
+    +teacherWeight
+    +calculateFinalScore(enterpriseGrade, teacherGrade)
+  }
+  gradeService ..> GradeCalculator : delegates
+  GradeCalculator o--> GradeStrategy : strategy
+  GradeStrategy <|-- AverageGradeStrategy
+  GradeStrategy <|-- WeightedGradeStrategy
+
+  class documentService {
+    +get(user, id, kind)
+    +save(user, id, kind, data)
+    +generate(user, id, kind)
+  }
+  class DocumentCreator {
+    <<abstract>>
+    +createDocument()
+    +getData(context, saved)
+    +validate(data, period, forExport)
+    +prepareGeneration(context, saved, entries)
+  }
+  class ContractDocumentCreator {
+    +createDocument()
+  }
+  class DiaryDocumentCreator {
+    +createDocument()
+  }
+  class PracticeDocument {
+    <<abstract>>
+    +kind
+    +defaults(context)
+    +validate(data, period, forExport)
+    +generationInput(context, data, entries)
+  }
+  class ContractDocument {
+    +defaults(context)
+  }
+  class DiaryDocument {
+    +defaults(context)
+  }
+  documentService ..> DocumentCreator : selects via registry
+  DocumentCreator <|-- ContractDocumentCreator
+  DocumentCreator <|-- DiaryDocumentCreator
+  DocumentCreator ..> PracticeDocument : uses product
+  PracticeDocument <|-- ContractDocument
+  PracticeDocument <|-- DiaryDocument
+  ContractDocumentCreator ..> ContractDocument : creates
+  DiaryDocumentCreator ..> DiaryDocument : creates

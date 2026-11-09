@@ -1,0 +1,123 @@
+
+> test:ui
+> node ui.mjs
+
+[db] база даних: /var/folders/q_/gmbl4wjx7pg_lk5rvb7wwrgm0000gn/T/practice-ui-QKTA2h/test.db (створено)
+[17:39:31] POST /auth/register → 201 (146 мс)
+[17:39:31] POST /auth/login → 200 (79 мс)
+[17:39:31] GET /assignments?_expand=student → 200 (1 мс)
+[17:39:31] GET /diaryEntries?_sort=date&_order=desc&_limit=20 → 200 (0 мс)
+[17:39:31] GET /assignments?_expand=student → 304 (1 мс)
+[17:39:31] GET /diaryEntries?_sort=date&_order=desc&_limit=20 → 304 (1 мс)
+[17:39:31] GET /assignments?_expand=student → 304 (1 мс)
+[17:39:31] GET /assignments?_expand=student → 304 (1 мс)
+[17:39:31] GET /enterprises → 200 (1 мс)
+[17:39:31] GET /teachers → 200 (1 мс)
+[17:39:31] GET /periods → 200 (0 мс)
+[17:39:31] GET /enterprises → 304 (1 мс)
+[17:39:31] GET /teachers → 304 (1 мс)
+[17:39:31] GET /periods → 304 (0 мс)
+[17:39:31] GET /assignments/2 → 200 (1 мс)
+[17:39:31] GET /assignments/2 → 304 (1 мс)
+[17:39:31] GET /students/1 → 200 (1 мс)
+[17:39:31] GET /enterprises/1 → 200 (1 мс)
+[17:39:31] GET /teachers/1 → 200 (1 мс)
+[17:39:31] GET /periods/2 → 200 (1 мс)
+[17:39:31] GET /diaryEntries?assignmentId=2&_sort=date&_order=asc → 200 (1 мс)
+[17:39:31] GET /grades?assignmentId=2 → 200 (1 мс)
+[17:39:31] GET /students/1 → 304 (1 мс)
+[17:39:31] GET /enterprises/1 → 304 (0 мс)
+[17:39:31] GET /teachers/1 → 304 (0 мс)
+[17:39:31] GET /periods/2 → 304 (1 мс)
+[17:39:31] GET /diaryEntries?assignmentId=2&_sort=date&_order=asc → 304 (0 мс)
+[17:39:31] GET /grades?assignmentId=2 → 304 (0 мс)
+[17:39:31] GET /documents/2/contract → 200 (1 мс)
+[17:39:31] GET /documents/2/contract → 304 (1 мс)
+[17:39:31] PUT /documents/2/contract → 200 (2 мс)
+[17:39:31] GET /documents/2/contract/download → 422 (2 мс)
+[17:39:32] PUT /documents/2/contract → 200 (2 мс)
+[17:39:32] GET /assignments/2 → 304 (0 мс)
+[17:39:32] GET /assignments/2 → 304 (1 мс)
+[17:39:32] GET /students/1 → 304 (0 мс)
+[17:39:32] GET /enterprises/1 → 304 (0 мс)
+[17:39:32] GET /teachers/1 → 304 (0 мс)
+[17:39:32] GET /periods/2 → 304 (1 мс)
+[17:39:32] GET /diaryEntries?assignmentId=2&_sort=date&_order=asc → 304 (0 мс)
+[17:39:32] GET /grades?assignmentId=2 → 304 (0 мс)
+[17:39:32] GET /students/1 → 304 (0 мс)
+[17:39:32] GET /enterprises/1 → 304 (0 мс)
+[17:39:32] GET /teachers/1 → 304 (0 мс)
+[17:39:32] GET /periods/2 → 304 (1 мс)
+[17:39:32] GET /diaryEntries?assignmentId=2&_sort=date&_order=asc → 304 (0 мс)
+[17:39:32] GET /grades?assignmentId=2 → 304 (0 мс)
+[17:39:32] GET /documents/2/contract → 200 (1 мс)
+[17:39:32] GET /documents/2/contract → 304 (1 мс)
+[17:39:32] PUT /documents/2/contract → 200 (1 мс)
+[17:39:32] GET /documents/2/contract/download → 200 (115 мс)
+[17:39:32] GET /documents/2/diary → 200 (1 мс)
+[17:39:32] GET /documents/2/diary → 304 (0 мс)
+[17:39:32] PUT /documents/2/diary → 200 (2 мс)
+[17:39:33] PUT /documents/2/diary → 200 (1 мс)
+[17:39:33] GET /documents/2/diary/download → 200 (170 мс)
+[17:39:33] GET /materials/safety.pdf → 200 (6 мс)
+[17:39:33] GET /materials/safety.pdf → 200 (2 мс)
+[
+  {
+    "id": "UI-01",
+    "name": "Реєстрація через форму",
+    "status": "PASS",
+    "actual": "Показано підтвердження створення облікового запису"
+  },
+  {
+    "id": "TC-19",
+    "name": "Пошук за прізвищем",
+    "type": "positive",
+    "precondition": "Студент увійшов; відкритий список направлень",
+    "steps": "Ввести Василюк у поле пошуку",
+    "input": "Василюк",
+    "expected": "Два власні направлення",
+    "actual": "Показано 2 із 2",
+    "status": "PASS"
+  },
+  {
+    "id": "TC-20",
+    "name": "Пошук без збігів",
+    "type": "negative",
+    "precondition": "Студент увійшов; список направлень",
+    "steps": "Ввести НеіснуючаКомпанія у поле пошуку",
+    "input": "НеіснуючаКомпанія",
+    "expected": "Повідомлення про відсутність результатів",
+    "actual": "Направлень не знайдено",
+    "status": "PASS"
+  },
+  {
+    "id": "UI-02",
+    "name": "Договір: валідація, збереження, перезавантаження, файл",
+    "status": "PASS",
+    "actual": "Чернетка збереглась після reload; браузер завантажив DOCX"
+  },
+  {
+    "id": "UI-03",
+    "name": "Щоденник: графік і завантаження",
+    "status": "PASS",
+    "actual": "Графік збережено; браузер завантажив щоденник"
+  },
+  {
+    "id": "UI-04",
+    "name": "Мобільний інтерфейс 390 px",
+    "status": "PASS",
+    "actual": "Немає горизонтального переповнення"
+  },
+  {
+    "id": "UI-05",
+    "name": "Інструктаж і бланки",
+    "status": "PASS",
+    "actual": "Сторінка доступна; PDF повертає 200"
+  },
+  {
+    "id": "UI-06",
+    "name": "Вихід із системи",
+    "status": "PASS",
+    "actual": "Повернення до форми входу"
+  }
+]
