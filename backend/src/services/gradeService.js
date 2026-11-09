@@ -4,24 +4,13 @@ import { assignmentModel } from '../models/assignmentModel.js';
 import { assignmentService } from './assignmentService.js';
 import { ApiError } from '../utils/ApiError.js';
 import { assertValid, validateGrade } from '../utils/validate.js';
-
-// Шкала переведення балів, затверджена в університеті
-const SCALE = [
-  { min: 90, ects: 'A', national: 'відмінно' },
-  { min: 80, ects: 'B', national: 'добре' },
-  { min: 70, ects: 'C', national: 'добре' },
-  { min: 60, ects: 'D', national: 'задовільно' },
-  { min: 50, ects: 'E', national: 'задовільно' },
-  { min: 35, ects: 'FX', national: 'незадовільно' },
-  { min: 0, ects: 'F', national: 'незадовільно' },
-];
+import { GradeCalculator } from '../patterns/grades/GradeCalculator.js';
 
 export const gradeService = {
   // Підсумковий бал обчислює сервер, а не клієнт, — інакше оцінку можна було б підмінити у запиті
-  calculate(enterpriseGrade, teacherGrade) {
-    const finalScore = Math.round((Number(enterpriseGrade) + Number(teacherGrade)) / 2);
-    const row = SCALE.find((s) => finalScore >= s.min);
-    return { finalScore, ectsGrade: row.ects, nationalGrade: row.national };
+  calculate(enterpriseGrade, teacherGrade, strategy) {
+    // Стратегію передає серверний код; HTTP-запит її не обирає.
+    return new GradeCalculator(strategy).calculate(enterpriseGrade, teacherGrade);
   },
 
   list(user, query = {}) {
@@ -54,6 +43,7 @@ export const gradeService = {
       throw ApiError.conflict('Оцінку можна виставити лише після прийняття звіту з практики');
     }
 
+    // Офіційне збереження завжди використовує початкове округлене середнє.
     const calculated = this.calculate(data.enterpriseGrade, data.teacherGrade);
     const payload = {
       assignmentId,

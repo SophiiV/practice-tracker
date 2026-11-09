@@ -73,7 +73,7 @@
     "steps": "GET /documents/2/contract/download",
     "input": "Збережений договір",
     "expected": "200; файл DOCX",
-    "actual": "200; DOCX 28033 байтів, ZIP-сигнатура PK",
+    "actual": "200; DOCX 28229 байтів, ZIP-сигнатура PK",
     "status": "PASS"
   },
   {

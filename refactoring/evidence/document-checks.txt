@@ -1,0 +1,3 @@
+PASS contract: template hash, ZIP preservation, section geometry, identity, content and table order
+PASS diary: template hash, ZIP preservation, section geometry, identity, content and table order
+Document structural checks passed.

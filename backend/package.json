@@ -12,7 +12,9 @@
     "test": "node --test tests/*.test.js",
     "test:unit": "node --test tests/unit.test.js",
     "test:functional": "node --test tests/functional.test.js",
-    "test:integration": "node --test tests/integration.test.js"
+    "test:integration": "node --test tests/integration.test.js",
+    "test:patterns": "node --test tests/patterns-*.test.js",
+    "demo:patterns": "node scripts/demo_patterns.js"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",

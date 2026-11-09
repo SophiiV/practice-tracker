@@ -1,0 +1,23 @@
+classDiagram
+  direction LR
+  class gradeService {
+    +calculate(enterpriseGrade, teacherGrade)
+    +save(user, data)
+    -averageFormula
+    -SCALE
+  }
+  class documentService {
+    +context(user, id, kind)
+    +get(user, id, kind)
+    +save(user, id, kind, data)
+    +generate(user, id, kind)
+    -contractOrDiaryDefaults
+  }
+  class gradeModel
+  class documentModel
+  class validateDocument
+  class PythonDocxExporter
+  gradeService --> gradeModel : saves grade
+  documentService --> documentModel : reads and saves
+  documentService --> validateDocument : validates by kind
+  documentService --> PythonDocxExporter : JSON input

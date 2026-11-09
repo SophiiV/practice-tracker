@@ -1,5 +1,5 @@
 {
-  "stage": "11",
-  "tag": "lab11-v2",
-  "description": "Функціональне, модульне та інтеграційне тестування застосунку."
+  "stage": "12",
+  "tag": "lab12",
+  "description": "Рефакторинг із патернами Strategy та Factory Method."
 }

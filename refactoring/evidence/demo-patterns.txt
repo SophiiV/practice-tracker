@@ -1,0 +1,38 @@
+
+> practice-tracker-backend@1.0.0 demo:patterns
+> node scripts/demo_patterns.js
+
+Strategy: однаковий виклик calculate(80, 95), різні алгоритми
+AverageGradeStrategy { finalScore: 88, ectsGrade: 'B', nationalGrade: 'добре' }
+WeightedGradeStrategy { finalScore: 89, ectsGrade: 'B', nationalGrade: 'добре' }
+У gradeService.save() залишається AverageGradeStrategy; ваги 40/60 — навчальний приклад.
+
+Factory Method: спільний getData(), різні createDocument()
+ContractDocumentCreator → ContractDocument
+{
+  number: '',
+  city: 'Івано-Франківськ',
+  signedOn: '',
+  enterpriseName: 'Демонстраційна компанія',
+  representative: '',
+  authority: '',
+  address: 'м. Івано-Франківськ',
+  email: '',
+  course: '4',
+  specialty: '112 – «Інженерія програмного забезпечення»',
+  validUntil: '',
+  additionalTerms: ''
+}
+DiaryDocumentCreator → DiaryDocument
+{
+  faculty: 'Факультет математики та інформатики',
+  department: 'Інформаційних технологій',
+  qualification: 'Бакалавр',
+  educationProgram: 'Інженерія програмного забезпечення',
+  specialty: 'Інженерія програмного забезпечення',
+  course: '4',
+  arrivedOn: '',
+  departedOn: '',
+  responsiblePerson: 'Керівник практики',
+  schedule: []
+}
